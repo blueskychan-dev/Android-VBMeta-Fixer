@@ -43,7 +43,7 @@ while [ $counter -lt $timeout ]; do
         if [ "$boot_hash" == "null" ]; then
             boot_hash=""
         fi
-        resetprop ro.boot.vbmeta.digest "$boot_hash"
+        resetprop -n ro.boot.vbmeta.digest "$boot_hash"
         
         echo "description=Reset the VBMeta digest property with the correct boot hash to fix detection.\nStatus: Service Active ✅" >> "$MODPATH/module.prop"
         echo "vbmeta-fixer: service.sh - service active" >> /dev/kmsg
